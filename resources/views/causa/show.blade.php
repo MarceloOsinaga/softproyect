@@ -3,16 +3,19 @@
 @section('content')
 	<div class="col-xs-12 col-sm-8">
 		<h2>
-			Nuevo Sindicato
+			
 			<a href="{{ route('sindicatos.index') }}" class="btn btn-default pull-right">		Regresar
 			</a>
 		</h2>
 		<hr>
-		@include('sindicato.partials.errors')
-		{!! Form::open(['route' => 'sindicatos.store']) !!}
-			
-			@include('sindicato.partials.form')
-			
-		{!! Form::close() !!}
+		<p>{{ $sindicato->id }}</p> 
+		<p>{{ $sindicato->nombre }}</p>
+		<p>{{ $sindicato->descripcion }}</p>
+		
+
+		<a href="{{ route('sindicatos.edit', $sindicato->id) }}" class="btn btn-primary">
+			Editar
+		</a>
 	</div>
+	
 @endsection

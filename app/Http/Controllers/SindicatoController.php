@@ -14,7 +14,7 @@ class SindicatoController extends Controller
      */
     public function index()
     {
-        $sindicatos = sindicato::orderBy('id', 'DESC')->paginate();
+        $sindicatos = Sindicato::orderBy('id', 'DESC')->paginate();
         return view('sindicato.index', compact('sindicatos'));
     }
 
@@ -36,7 +36,7 @@ class SindicatoController extends Controller
      */
     public function store(Request $request)
     {
-       $sindicato = new sindicato;
+       $sindicato = new Sindicato;
         $sindicato->nombre  = $request->nombre;
         $sindicato->descripcion = $request->descripcion;
         $sindicato->save();
@@ -51,7 +51,7 @@ class SindicatoController extends Controller
      */
     public function show(Sindicato $sindicato)
     {
-        $sindicato = sindicato::find($id);
+        $sindicato = Sindicato::find($id);
         return view('sindicato.show', compact('sindicato'));
     }
 
@@ -61,9 +61,9 @@ class SindicatoController extends Controller
      * @param  \App\Sindicato  $sindicato
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sindicato $sindicato)
+    public function edit($id)
     {
-        $sindicato = sindicato::find($id);
+        $sindicato = Sindicato::find($id);
         return view('sindicato.edit', compact('sindicato'));
     }
 
@@ -74,9 +74,9 @@ class SindicatoController extends Controller
      * @param  \App\Sindicato  $sindicato
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sindicato $sindicato)
+    public function update(Request $request, $id)
     {
-         $sindicato = sindicato::find($id);
+         $sindicato = Sindicato::find($id);
         $sindicato->nombre  = $request->nombre;
         $sindicato->descripcion = $request->descripcion;
         $sindicato->save();
@@ -89,9 +89,9 @@ class SindicatoController extends Controller
      * @param  \App\Sindicato  $sindicato
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sindicato $sindicato)
+    public function destroy($id)
     {
-        $sindicato = sindicato::find($id);
+        $sindicato = Sindicato::find($id);
         $sindicato->delete();
         return back()->with('info', 'Fue eliminado exitosamente');
     }
