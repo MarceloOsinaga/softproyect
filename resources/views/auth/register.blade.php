@@ -66,7 +66,7 @@
                     </div>
                     <div class="form-group m-b-0">
                         <div class="col-sm-12 text-center">
-                            <p>Already have an account? <a href="pages-login-2.html" class="text-info m-l-5"><b>{{ __('register') }}</b></a></p>
+                            <p>Already have an account? <a href="{{ route('login') }}" class="text-info m-l-5"><b>iniciar sesion</b></a></p>
                         </div>
                     </div>
                 </form>
