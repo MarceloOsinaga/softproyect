@@ -14,7 +14,8 @@ class SindicatoController extends Controller
      */
     public function index()
     {
-        //
+        $sindicatos = sindicato::orderBy('id', 'DESC')->paginate();
+        return view('sindicato.index', compact('sindicatos'));
     }
 
     /**
@@ -24,7 +25,7 @@ class SindicatoController extends Controller
      */
     public function create()
     {
-        //
+        return view('sindicato.create');
     }
 
     /**
@@ -35,7 +36,11 @@ class SindicatoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $sindicato = new sindicato;
+        $sindicato->nombre  = $request->nombre;
+        $sindicato->descripcion = $request->descripcion;
+        $sindicato->save();
+        return redirect()->route('sindicatos.index');
     }
 
     /**
@@ -46,7 +51,8 @@ class SindicatoController extends Controller
      */
     public function show(Sindicato $sindicato)
     {
-        //
+        $sindicato = sindicato::find($id);
+        return view('sindicato.show', compact('sindicato'));
     }
 
     /**
@@ -57,7 +63,8 @@ class SindicatoController extends Controller
      */
     public function edit(Sindicato $sindicato)
     {
-        //
+        $sindicato = sindicato::find($id);
+        return view('sindicato.edit', compact('sindicato'));
     }
 
     /**
@@ -69,7 +76,11 @@ class SindicatoController extends Controller
      */
     public function update(Request $request, Sindicato $sindicato)
     {
-        //
+         $sindicato = sindicato::find($id);
+        $sindicato->nombre  = $request->nombre;
+        $sindicato->descripcion = $request->descripcion;
+        $sindicato->save();
+        return redirect()->route('sindicatos.index');
     }
 
     /**
@@ -80,6 +91,8 @@ class SindicatoController extends Controller
      */
     public function destroy(Sindicato $sindicato)
     {
-        //
+        $sindicato = sindicato::find($id);
+        $sindicato->delete();
+        return back()->with('info', 'Fue eliminado exitosamente');
     }
 }
