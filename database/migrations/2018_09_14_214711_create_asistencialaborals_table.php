@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContratoTable extends Migration
+class CreateAsistencialaboralsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,13 @@ class CreateContratoTable extends Migration
      */
     public function up()
     {
-        Schema::create('contrato', function (Blueprint $table) {
+        Schema::create('asistencialaborals', function (Blueprint $table) {
             $table->increments('id');
             $table->time('horaingreso');
             $table->time('horasalida');
-            $table->date('fechainicio');
-            $table->date('fechafin');
-            $table->double('salario');
-            $table->string('turnotrabajo');
-            $table->integer('id_tipocontrato')->unsigned();
-            $table->foreign('id_tipocontrato')->references('id')->on('tipocontrato')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+            $table->date('fecha');
             $table->integer('id_empleado')->unsigned();
-            $table->foreign('id_empleado')->references('id')->on('empleado')
+            $table->foreign('id_empleado')->references('id')->on('empleados')
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->timestamps();
@@ -40,6 +33,6 @@ class CreateContratoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contrato');
+        Schema::dropIfExists('asistencialaborals');
     }
 }

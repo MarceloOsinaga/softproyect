@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRecursosdotacionTable extends Migration
+class CreateMemorandasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateRecursosdotacionTable extends Migration
      */
     public function up()
     {
-        Schema::create('recursosdotacion', function (Blueprint $table) {
+        Schema::create('memorandas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('articulo',80);
+            $table->string('motivo');
+            $table->date('fecha');
             $table->integer('id_empleado')->unsigned();
-            $table->foreign('id_empleado')->references('id')->on('empleado')
+            $table->foreign('id_empleado')->references('id')->on('empleados')
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->timestamps();
@@ -31,6 +32,6 @@ class CreateRecursosdotacionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recursosdotacion');
+        Schema::dropIfExists('memorandas');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSindicatoTable extends Migration
+class CreateRecursosdotacionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateSindicatoTable extends Migration
      */
     public function up()
     {
-        Schema::create('sindicato', function (Blueprint $table) {
+        Schema::create('recursosdotacions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre',80);
-            $table->string('descripcion',200);
+            $table->string('articulo',80);
+            $table->integer('id_empleado')->unsigned();
+            $table->foreign('id_empleado')->references('id')->on('empleados')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateSindicatoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sindicato');
+        Schema::dropIfExists('recursosdotacions');
     }
 }
