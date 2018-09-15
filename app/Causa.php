@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Causa extends Model
 {
-    //
+     protected $fillable = [
+    	'nombre', 'descripcion'
+    ];
 }
