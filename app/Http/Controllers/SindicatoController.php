@@ -14,7 +14,8 @@ class SindicatoController extends Controller
      */
     public function index()
     {
-        //
+        $sindicatos = Sindicato::orderBy('id', 'DESC')->paginate();
+        return view('sindicato.index', compact('sindicatos'));
     }
 
     /**
@@ -24,7 +25,7 @@ class SindicatoController extends Controller
      */
     public function create()
     {
-        //
+        return view('sindicato.create');
     }
 
     /**
@@ -35,7 +36,11 @@ class SindicatoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $sindicato = new Sindicato;
+        $sindicato->nombre  = $request->nombre;
+        $sindicato->descripcion = $request->descripcion;
+        $sindicato->save();
+        return redirect()->route('sindicatos.index');
     }
 
     /**
@@ -46,7 +51,8 @@ class SindicatoController extends Controller
      */
     public function show(Sindicato $sindicato)
     {
-        //
+        $sindicato = Sindicato::find($id);
+        return view('sindicato.show', compact('sindicato'));
     }
 
     /**
@@ -55,9 +61,10 @@ class SindicatoController extends Controller
      * @param  \App\Sindicato  $sindicato
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sindicato $sindicato)
+    public function edit($id)
     {
-        //
+        $sindicato = Sindicato::find($id);
+        return view('sindicato.edit', compact('sindicato'));
     }
 
     /**
@@ -67,9 +74,13 @@ class SindicatoController extends Controller
      * @param  \App\Sindicato  $sindicato
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sindicato $sindicato)
+    public function update(Request $request, $id)
     {
-        //
+         $sindicato = Sindicato::find($id);
+        $sindicato->nombre  = $request->nombre;
+        $sindicato->descripcion = $request->descripcion;
+        $sindicato->save();
+        return redirect()->route('sindicatos.index');
     }
 
     /**
@@ -78,8 +89,10 @@ class SindicatoController extends Controller
      * @param  \App\Sindicato  $sindicato
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sindicato $sindicato)
+    public function destroy($id)
     {
-        //
+        $sindicato = Sindicato::find($id);
+        $sindicato->delete();
+        return back()->with('info', 'Fue eliminado exitosamente');
     }
 }

@@ -372,6 +372,27 @@
                     <ul id="sidebarnav">
                          <li class="nav-devider"></li>
                         <li class="nav-small-cap">PERSONAL</li>
+
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">RRHH </span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="*">Gestionar Empleado</a></li>
+                                <li><a href="*">Administrar Vacacion</a></li>
+                                <li><a href="*">Registrar Asistencia</a></li>
+                                <li><a href="*">Administrar Contrato</a></li>
+                                <li><a href="*">Gestionar Tipo de Contrato</a></li>
+                                <li><a href="*">Gestionar Habilidad</a></li>
+                                <li><a href="*">Registrar Memorandum</a></li>
+                                <li><a href="*">Getionar Causa Asencia</a></li>
+                                <li><a href="*">Administrar Ausencia</a></li>
+                                <li><a href="*">Gestionar Sindicato</a></li>
+                                <li><a href="*">Gestionar Recurso Dotado</a></li>
+                                <li><a href="*">Gestionar Familiar</a></li>
+                            </ul>
+                        </li>
+
+
+
+
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard <span class="label label-rouded label-themecolor pull-right">4</span></span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="index.html">Minimal </a></li>
@@ -427,7 +448,7 @@
                                 <li><a href="ui-dragable-portlet.html">Dragable Portlet</a></li>
                             </ul>
                         </li>
-                        
+
                         <li class="nav-small-cap">FORMS, TABLE &amp; WIDGETS</li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Forms</span></a>
                             <ul aria-expanded="false" class="collapse">
@@ -467,10 +488,10 @@
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="widget-apps.html">Data Widgets</a></li>
                                 <li><a href="widget-data.html">Statestic Widgets</a></li>
-                                
+
                             </ul>
                         </li>
-                        
+
                         <li class="nav-small-cap">EXTRA COMPONENTS</li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span class="hide-menu">Page Layout</span></a>
                             <ul aria-expanded="false" class="collapse">

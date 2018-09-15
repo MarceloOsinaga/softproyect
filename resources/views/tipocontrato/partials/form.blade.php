@@ -1,3 +1,4 @@
+
 <div class="row p-t-20">
 <div class="col-md-6">
 	<div class="form-group">
@@ -8,9 +9,7 @@
 <div class="col-md-6">
 	<div class="form-group">
 	{!! Form::label('descripcion', 'Descripción' , ['class' => 'control-label'],['placeholder' => 'Nombre'],['id' => 'Nombre']) !!}
-	{!! Form::text('descripcion', null, ['class' => 'form-control']) !!}
-	</div>
-</div>
+
 </div>
 <hr>
 	<div class="form-actions">
