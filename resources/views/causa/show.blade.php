@@ -4,16 +4,16 @@
 	<div class="col-xs-12 col-sm-8">
 		<h2>
 			
-			<a href="{{ route('sindicatos.index') }}" class="btn btn-default pull-right">		Regresar
+			<a href="{{ route('causas.index') }}" class="btn btn-default pull-right">		Regresar
 			</a>
 		</h2>
 		<hr>
-		<p>{{ $sindicato->id }}</p> 
-		<p>{{ $sindicato->nombre }}</p>
-		<p>{{ $sindicato->descripcion }}</p>
+		<p>{{ $causa->id }}</p> 
+		<p>{{ $causa->nombre }}</p>
+		<p>{{ $causa->descripcion }}</p>
 		
 
-		<a href="{{ route('sindicatos.edit', $sindicato->id) }}" class="btn btn-primary">
+		<a href="{{ route('causas.edit', $causa->id) }}" class="btn btn-primary">
 			Editar
 		</a>
 	</div>
