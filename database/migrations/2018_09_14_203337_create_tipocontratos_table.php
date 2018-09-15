@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHabilidadeTable extends Migration
+class CreateTipocontratosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateHabilidadeTable extends Migration
      */
     public function up()
     {
-        Schema::create('habilidades', function (Blueprint $table) {
+        Schema::create('tipocontratos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre',80);
-            $table->integer('id_empleado')->unsigned();
-            $table->foreign('id_empleado')->references('id')->on('empleado')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+            $table->string('descripcion',200);
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateHabilidadeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('habilidade');
+        Schema::dropIfExists('tipocontratos');
     }
 }

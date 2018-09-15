@@ -14,7 +14,9 @@ class TipocontratoController extends Controller
      */
     public function index()
     {
-        //
+        $tipocontratos = Tipocontrato::orderBy('id', 'DESC')->paginate();
+        return view('tipocontrato.index', compact('tipocontratos'));
+       //return $tipocontratos;
     }
 
     /**
@@ -24,7 +26,7 @@ class TipocontratoController extends Controller
      */
     public function create()
     {
-        //
+        return view('tipocontrato.create');
     }
 
     /**
@@ -35,7 +37,11 @@ class TipocontratoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tipocontrato = new Tipocontrato;
+        $tipocontrato->nombre  = $request->nombre;
+        $tipocontrato->descripcion = $request->descripcion;
+        $tipocontrato->save();
+        return redirect()->route('tipocontratos.index');
     }
 
     /**
@@ -44,9 +50,10 @@ class TipocontratoController extends Controller
      * @param  \App\Tipocontrato  $tipocontrato
      * @return \Illuminate\Http\Response
      */
-    public function show(Tipocontrato $tipocontrato)
+    public function show($id)
     {
-        //
+        $tipocontrato = Tipocontrato::find($id);
+        return view('tipocontrato.show', compact('tipocontrato'));
     }
 
     /**
@@ -55,9 +62,10 @@ class TipocontratoController extends Controller
      * @param  \App\Tipocontrato  $tipocontrato
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tipocontrato $tipocontrato)
+    public function edit($id)
     {
-        //
+        $tipocontrato = Tipocontrato::find($id);
+        return view('tipocontrato.edit', compact('tipocontrato'));
     }
 
     /**
@@ -67,9 +75,13 @@ class TipocontratoController extends Controller
      * @param  \App\Tipocontrato  $tipocontrato
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tipocontrato $tipocontrato)
+    public function update(Request $request, $id)
     {
-        //
+        $tipocontrato = Tipocontrato::find($id);
+        $tipocontrato->nombre  = $request->nombre;
+        $tipocontrato->descripcion = $request->descripcion;
+        $tipocontrato->save();
+        return redirect()->route('tipocontratos.index');
     }
 
     /**
@@ -78,8 +90,10 @@ class TipocontratoController extends Controller
      * @param  \App\Tipocontrato  $tipocontrato
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tipocontrato $tipocontrato)
+    public function destroy($id)
     {
-        //
+        $tipocontrato = Tipocontrato::find($id);
+        $tipocontrato->delete();
+        return back()->with('info', 'Fue eliminado exitosamente');
     }
 }

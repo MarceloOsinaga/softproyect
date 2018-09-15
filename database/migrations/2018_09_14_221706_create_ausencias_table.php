@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAusenciaTable extends Migration
+class CreateAusenciasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAusenciaTable extends Migration
      */
     public function up()
     {
-        Schema::create('ausencia', function (Blueprint $table) {
+        Schema::create('ausencias', function (Blueprint $table) {
             $table->increments('id');
             $table->date('fechadesde');
             $table->date('fechahasta');
@@ -21,11 +21,11 @@ class CreateAusenciaTable extends Migration
             $table->integer('cantidad');
             $table->string('unidadmedida',200);
             $table->integer('id_empleado')->unsigned();
-            $table->foreign('id_empleado')->references('id')->on('empleado')
+            $table->foreign('id_empleado')->references('id')->on('empleados')
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->integer('id_causa')->unsigned();
-            $table->foreign('id_causa')->references('id')->on('causa')
+            $table->foreign('id_causa')->references('id')->on('causas')
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->timestamps();
@@ -39,6 +39,6 @@ class CreateAusenciaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ausencia');
+        Schema::dropIfExists('ausencias');
     }
 }

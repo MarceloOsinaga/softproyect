@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEmpleadoTable extends Migration
+class CreateEmpleadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateEmpleadoTable extends Migration
      */
     public function up()
     {
-        Schema::create('empleado', function (Blueprint $table) {
+        Schema::create('empleados', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre',80);
             $table->string('appaterno',50);
@@ -27,11 +27,11 @@ class CreateEmpleadoTable extends Migration
             $table->string('nacionalidad',30);
             $table->integer('telefono');
             $table->integer('id_sindicato')->unsigned();
-            $table->foreign('id_sindicato')->references('id')->on('sindicato')
+            $table->foreign('id_sindicato')->references('id')->on('sindicatos')
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->integer('id_departamento')->unsigned();
-            $table->foreign('id_departamento')->references('id')->on('departamento')
+            $table->foreign('id_departamento')->references('id')->on('departamentos')
             ->onUpdate('cascade')
             ->onDelete('cascade');
 
@@ -47,6 +47,6 @@ class CreateEmpleadoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('empleado');
+        Schema::dropIfExists('empleados');
     }
 }
