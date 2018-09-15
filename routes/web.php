@@ -19,3 +19,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('tipocontratos', 'TipocontratoController');
+
+
+
+
+
+
+
+
+///Backup
+Route::resource('/backup', 'Admin\BackupController');

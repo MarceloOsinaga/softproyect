@@ -1,18 +1,33 @@
 @extends('layouts.admin')
 
 @section('content')
-	<div class="col-xs-12 col-sm-8">
-		<h2>
-			Nuevo producto
-			<a href="{{ route('tipocontratos.index') }}" class="btn btn-default pull-right">		Regresar
-			</a>
-		</h2>
-		<hr>
-		@include('tipocontrato.partials.errors')
-		{!! Form::open(['route' => 'tipocontratos.store']) !!}
-			
-			@include('tipocontrato.partials.form')
-			
-		{!! Form::close() !!}
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="card card-outline-info">
+			<div class="card-header">
+				<h4 class="m-b-0 text-white">Nueva Creacion de Tipo Contrato</h4>
+			</div>
+			<div class="card-body">
+					<div class="form-body">
+							<a href="{{ route('tipocontratos.index') }}" class="btn btn-outline-primary btn-rounded pull-right">
+									Regresar
+								</a>
+							<h3 class="card-title">Datos</h3>
+							<hr>
+							@include('tipocontrato.partials.errors')
+							{!! Form::open(['route' => 'tipocontratos.store']) !!}
+								
+								@include('tipocontrato.partials.form')
+								
+							{!! Form::close() !!}
+						
+					</div>
+			</div>
+		</div>
 	</div>
+</div>
+
+
+
 @endsection

@@ -27,9 +27,7 @@
 <![endif]-->
 </head>
 
-<body class="fix-header card-no-border" style="
-        font-family:Georgia;
-">
+<body class="fix-header card-no-border" style=" font-family:Georgia;">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -614,7 +612,6 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                This is some text within a card block.
                                 @yield('content')
                             </div>
                         </div>
@@ -705,12 +702,23 @@
     <script src="{{ asset('assets/plugins/sparkline/jquery.sparkline.min.js') }}"></script>
     <!--Custom JavaScript -->
     <script src="{{ asset('js/custom.min.js') }}"></script>
+
+    <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <!-- start - This is for export functionality only -->
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="{{ asset('assets/plugins/styleswitcher/jQuery.style.switcher.js') }}"></script>
 
     <script src="{{ asset('assets/plugins/dropify/dist/js/dropify.min.js') }}"></script>
+
+
+
+
+
+
+    
     <script>
     $(document).ready(function() {
         // Basic
