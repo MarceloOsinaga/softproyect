@@ -3,7 +3,7 @@
 @section('content')
 	<div class="col-xs-12 col-sm-8">
 		<hr>
-		@include('causa.partials.info')
+		@include('departamento.partials.info')
 		<table class="table table-hover table-striped">
 			<thead>
 				<tr>
@@ -14,27 +14,27 @@
 				</tr>
 			</thead>
 			<tbody>
-				@foreach($causas as $causa)
+				@foreach($departamentos as $departamento)
 				<tr>
-					<td>{{ $causa->id }}</td>
+					<td>{{ $departamento->id }}</td>
 					<td>
-						{{ $causa->nombre }}
+						{{ $departamento->nombre }}
 					</td>
 					<td>
-						{{ $causa->descripcion }}
+						{{ $departamento->descripcion }}
 					</td>
 					<td width="20px">
-						<a href="{{ route('causas.show', $causa->id) }}" class="btn btn-link">
+						<a href="{{ route('departamentos.show', $departamento->id) }}" class="btn btn-link">
 							Ver
 						</a>
 					</td>
 					<td width="20px">
-						<a href="{{ route('causas.edit', $causa->id) }}" class="btn btn-link">
+						<a href="{{ route('departamentos.edit', $departamento->id) }}" class="btn btn-link">
 							Editar
 						</a>
 					</td>
 					<td width="20px">
-						{!! Form::open(['route' => ['causas.destroy', $causa->id], 'method' => 'DELETE']) !!}
+						{!! Form::open(['route' => ['departamentos.destroy', $departamento->id], 'method' => 'DELETE']) !!}
 							<button class="btn btn-link">
 								Borrar
 							</button>							
@@ -43,9 +43,9 @@
 				</tr>
 				@endforeach
 			</tbody>
-			<a href="{{ route('causas.create') }}" class="btn btn-primary pull-right">Nuevo</a>
+			<a href="{{ route('departamentos.create') }}" class="btn btn-primary pull-right">Nuevo</a>
 		</table>
-		{!! $causas->render() !!}
+		{!! $departamentos->render() !!}
 	</div>
 	
 @endsection
