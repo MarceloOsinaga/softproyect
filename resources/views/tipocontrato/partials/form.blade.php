@@ -2,13 +2,14 @@
 
 	<div class="form-group">
 	{!! Form::label('name', 'Nombre ', ['class' => 'control-label']) !!}
-	{!! Form::text('nombre', null, ['class' => 'form-control'],['placeholder' => 'Nombre'],['id' => 'Nombre']) !!}
+	{!! Form::text('nombre', null, ['class' => 'form-control','placeholder' => 'Nombre'])!!}
+
 	</div>
 
 
 	<div class="form-group">
 	{!! Form::label('descripcion', 'Descripción' , ['class' => 'control-label']) !!}
-	{!! Form::text('Descripcion', null, ['class' => 'form-control'],['placeholder' => 'Descripcion'],['id' => 'Descripcion']) !!}
+	{!! Form::text('descripcion', null, ['class' => 'form-control','placeholder' => 'Descripcion']) !!}
 	</div>
 
 <hr>
