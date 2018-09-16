@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Departamento extends Model
 {
      protected $fillable = [
-    	'nombre', 'descripcion'
+    	'id','nombre', 'descripcion'
     ];
+
+    public function empleado(){
+        return $this->hasMany("App\Empleado","id");
+    }
 }
