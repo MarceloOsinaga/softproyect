@@ -11,9 +11,9 @@
 								
 									<div class="card-body">
 									
-										<a href="{{ route('tipocontratos.index') }}" class="btn btn-outline-primary btn-rounded pull-right">
+										<a href="{{ route('causas.index') }}" class="btn btn-outline-primary btn-rounded pull-right">
 												Regresar
-												@include('Tipocontrato.partials.info')
+												@include('causa.partials.info')
 											</a>
 										<h3 class="card-title">Datos</h3>
 										<div class="table-responsive">
@@ -27,27 +27,27 @@
 													</tr>
 												</thead>
 												<tbody>
-														@foreach($tipocontratos as $tipocontrato)
+														@foreach($causas as $causa)
 													<tr>
-														<td >{{ $tipocontrato->id }}</td>
+														<td >{{ $causa->id }}</td>
 														<td>
-															{{ $tipocontrato->nombre }}
+															{{ $causa->nombre }}
 														</td>
 														<td >
-															{{ $tipocontrato->descripcion }}
+															{{ $causa->descripcion }}
 														</td>
 														<td width="1%">
-															<a href="{{ route('tipocontratos.show', $tipocontrato->id) }}" class="btn btn-secondary btn-circle">
+															<a href="{{ route('causas.show', $causa->id) }}" class="btn btn-secondary btn-circle">
 																	<i class="fa fa-eye"></i>
 															</a>
 														</td>
 														<td width="1%">
-															<a href="{{ route('tipocontratos.edit', $tipocontrato->id) }}" class="btn btn-secondary btn-circle">
+															<a href="{{ route('causas.edit', $causa->id) }}" class="btn btn-secondary btn-circle">
 																	<i class="fa fa-edit (alias)"></i>
 															</a>
 														</td>
 														<td width="1%" >
-															{!! Form::open(['route' => ['tipocontratos.destroy', $tipocontrato->id], 'method' => 'DELETE']) !!}
+															{!! Form::open(['route' => ['causas.destroy', $causa->id], 'method' => 'DELETE']) !!}
 																<button class="btn btn-secondary btn-circle ">
 																		<i class="fa fa-trash-o"></i>
 																</button>							
@@ -58,8 +58,8 @@
 												</tbody>
 											</table>
 											<hr>
-											{!! $tipocontratos->render() !!}
-										<a href="{{ route('tipocontratos.create') }}" class="btn btn-primary ">Nuevo</a>
+											{!! $causas->render() !!}
+										<a href="{{ route('causas.create') }}" class="btn btn-primary ">Nuevo</a>
 										</div>
 									
 								</div>

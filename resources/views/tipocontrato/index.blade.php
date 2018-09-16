@@ -3,6 +3,7 @@
 @section('titulo')
 Tipo Contrato
 @endsection
+
 @section('botonRegresar')
 
 <a href="{{ route('tipocontratos.index') }}" class="btn btn-outline-primary btn-rounded pull-right">
