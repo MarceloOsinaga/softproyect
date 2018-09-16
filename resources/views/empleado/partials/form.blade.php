@@ -36,6 +36,14 @@
 			{!! Form::label('telefono', 'Telefono ', ['class' => 'control-label']) !!}
 			{!! Form::number('telefono', null, ['class' => 'form-control','3366566' => 'Nombre','id' => 'Nombre']) !!}
 		</div>
+		<div class="form-group">
+			{!! Form::label('telefono', 'Telefono ', ['class' => 'control-label']) !!}
+			{!! Form::number('telefono', null, ['class' => 'form-control','3366566' => 'Nombre','id' => 'Nombre']) !!}
+		</div>
+		<div class="form-group">
+			{!! Form::label('telefono', 'Telefono ', ['class' => 'control-label']) !!}
+			{!! Form::number('telefono', null, ['class' => 'form-control','3366566' => 'Nombre','id' => 'Nombre']) !!}
+		</div>
 	
 	
 
