@@ -16,13 +16,9 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        $empleados = Empleado::with('sindicato','departamento')->paginate("10");
+        $empleados =  Empleado::with('sindicato','departamento')->paginate("10");
         $sindicatos = Sindicato::all();
         return view('empleado.index', compact('empleados'));
-
-
-
-
     }
 
     /**

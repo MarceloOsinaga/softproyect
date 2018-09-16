@@ -26,4 +26,5 @@ Route::resource('sindicatos','SindicatoController');
 Route::resource('causas','CausaController');
 Route::resource('departamentos','DepartamentoController');
 Route::resource('empleados','EmpleadoController');
+Route::resource('empleados','Empleado');
 
