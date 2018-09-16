@@ -2,7 +2,10 @@
 
 	<div class="form-group">
 	{!! Form::label('name', 'Nombre ', ['class' => 'control-label']) !!}
+
 	{!! Form::text('nombre', null, ['class' => 'form-control','placeholder' => 'Nombre','id' => 'Nombre']) !!}
+
+
 	</div>
 
 
