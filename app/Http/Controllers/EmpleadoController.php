@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Empleado;
 use Illuminate\Http\Request;
+use App\Sindicato;
+use Illuminate\Support\Facades\DB;
 
 class EmpleadoController extends Controller
 {
@@ -14,7 +16,13 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        //
+        $empleados = Empleado::with('sindicato','departamento')->paginate("10");
+        $sindicatos = Sindicato::all();
+        return view('empleado.index', compact('empleados'));
+
+
+
+
     }
 
     /**
@@ -24,7 +32,7 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        //
+        return view('empleado.create');
     }
 
     /**
@@ -35,7 +43,11 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tipocontrato = new Tipocontrato;
+        $tipocontrato->nombre  = $request->nombre;
+        $tipocontrato->descripcion = $request->descripcion;
+        $tipocontrato->save();
+        return redirect()->route('tipocontratos.index');
     }
 
     /**
@@ -46,7 +58,8 @@ class EmpleadoController extends Controller
      */
     public function show(Empleado $empleado)
     {
-        //
+        $tipocontrato = Tipocontrato::find($id);
+        return view('tipocontrato.show', compact('tipocontrato'));
     }
 
     /**
@@ -57,7 +70,8 @@ class EmpleadoController extends Controller
      */
     public function edit(Empleado $empleado)
     {
-        //
+        $tipocontrato = Tipocontrato::find($id);
+        return view('tipocontrato.edit', compact('tipocontrato'));
     }
 
     /**
@@ -69,7 +83,11 @@ class EmpleadoController extends Controller
      */
     public function update(Request $request, Empleado $empleado)
     {
-        //
+        $tipocontrato = Tipocontrato::find($id);
+        $tipocontrato->nombre  = $request->nombre;
+        $tipocontrato->descripcion = $request->descripcion;
+        $tipocontrato->save();
+        return redirect()->route('tipocontratos.index');
     }
 
     /**
@@ -80,6 +98,8 @@ class EmpleadoController extends Controller
      */
     public function destroy(Empleado $empleado)
     {
-        //
+        $tipocontrato = Tipocontrato::find($id);
+        $tipocontrato->delete();
+        return back()->with('info', 'Fue eliminado exitosamente');
     }
 }
