@@ -161,6 +161,12 @@ return [
         App\Providers\RouteServiceProvider::class,
         'Cornford\Backup\Providers\BackupServiceProvider',
 
+        // libreria de laravel collective
+        Collective\Html\HtmlServiceProvider::class,
+
+        // libreria de shinobi
+        Caffeinated\Shinobi\ShinobiServiceProvider::class,
+
     ],
 
     /*
@@ -209,6 +215,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+
+        // libreria de laravel collective
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
 
