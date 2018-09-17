@@ -1,21 +1,23 @@
-@extends('layouts.admin')
+@extends('layouts.formulario')
 
-@section('content')
-	<div class="col-xs-12 col-sm-8">
-		<h2>
-			
-			<a href="{{ route('sindicatos.index') }}" class="btn btn-default pull-right">		Regresar
-			</a>
-		</h2>
-		<hr>
-		<p>{{ $sindicato->id }}</p> 
-		<p>{{ $sindicato->nombre }}</p>
-		<p>{{ $sindicato->descripcion }}</p>
-		
+@section('titulo')
+ Perfil tipo de causa Actual
+@endsection
 
-		<a href="{{ route('sindicatos.edit', $sindicato->id) }}" class="btn btn-primary">
-			Editar
-		</a>
-	</div>
-	
+@section('rutaRegresar')
+	href="{{ route('causas.index') }}"
+
+@endsection
+
+@section('formulario')
+						<strong>Id:</strong>
+						<p>{{ $causa->id }}</p> 
+						<strong>Nombre:</strong>
+						<p>{{ $causa->nombre }}</p>
+						<strong>Descripcion:</strong>
+						<p>{{ $causa->descripcion }}</p>
+						<hr>
+					<a href="{{ route('causas.edit', $causa->id) }}" class="btn  btn-outline-primary btn-rounded">
+					Editar
+				</a>
 @endsection

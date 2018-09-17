@@ -14,7 +14,9 @@ class CausaController extends Controller
      */
     public function index()
     {
-        //
+        $causas = causa::orderBy('id')->paginate("10");
+        return view('causa.index', compact('causas'));
+       //return $causas;
     }
 
     /**
@@ -24,7 +26,7 @@ class CausaController extends Controller
      */
     public function create()
     {
-        //
+        return view('causa.create');
     }
 
     /**
@@ -35,51 +37,63 @@ class CausaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $causa = new causa;
+        $causa->nombre  = $request->nombre;
+        $causa->descripcion = $request->descripcion;
+        $causa->save();
+        return redirect()->route('causas.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Causa  $causa
+     * @param  \App\causa  $causa
      * @return \Illuminate\Http\Response
      */
-    public function show(Causa $causa)
+    public function show($id)
     {
-        //
+        $causa = causa::find($id);
+        return view('causa.show', compact('causa'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Causa  $causa
+     * @param  \App\causa  $causa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Causa $causa)
+    public function edit($id)
     {
-        //
+        $causa = causa::find($id);
+        return view('causa.edit', compact('causa'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Causa  $causa
+     * @param  \App\causa  $causa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Causa $causa)
+    public function update(Request $request, $id)
     {
-        //
+        $causa = causa::find($id);
+        $causa->nombre  = $request->nombre;
+        $causa->descripcion = $request->descripcion;
+        $causa->save();
+        return redirect()->route('causas.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Causa  $causa
+     * @param  \App\causa  $causa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Causa $causa)
+    public function destroy($id)
     {
-        //
+        $causa = causa::find($id);
+        $causa->delete();
+        return back()->with('info', 'Fue eliminado exitosamente');
     }
 }

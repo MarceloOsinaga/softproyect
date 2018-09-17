@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Empleado;
 use Illuminate\Http\Request;
+use App\Sindicato;
+use Illuminate\Support\Facades\DB;
 
 class EmpleadoController extends Controller
 {
@@ -14,7 +16,11 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        //
+        $empleados =  Empleado::with('sindicato','departamento')->paginate("10");
+        
+        return view('empleado.index', compact('empleados'));
+        return view('empleado.create', compact('empleados'));
+        return redirect('',compact('empleados'));
     }
 
     /**
@@ -24,7 +30,8 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        //
+        return view('empleado.create');
+        
     }
 
     /**
@@ -35,7 +42,24 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $empleado = new Empleado;
+        $empleado->nombre  = $request->nombre;
+        $empleado->appaterno = $request->appaterno;
+        $empleado->apmaterno  = $request->apmaterno;
+        $empleado->cargo  = $request->cargo;
+        $empleado->ci  = $request->ci;
+        $empleado->direccion  = $request->direccion;
+        $empleado->estadocivil  = $request->estadocivil;
+        $empleado->fechanac  = $request->fechanac;
+        $empleado->genero  = $request->genero;
+        $empleado->nacionalidad  = $request->nacionalidad;
+        $empleado->telefono  = $request->telefono;
+        $empleado->id_sindicato  = $request->id_sindicato;
+        $empleado->id_departamento  = $request->id_departamento;
+
+        $empleado->save();
+        return redirect()->route('empleados.index');
+
     }
 
     /**
@@ -44,9 +68,10 @@ class EmpleadoController extends Controller
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function show(Empleado $empleado)
+    public function show($id)
     {
-        //
+        $empleado = Empleado::find($id);
+        return view('empleado.show', compact('empleado'));
     }
 
     /**
@@ -55,9 +80,10 @@ class EmpleadoController extends Controller
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function edit(Empleado $empleado)
+    public function edit($id)
     {
-        //
+        $empleado = Empleado::find($id);
+        return view('empleado.edit', compact('empleado'));
     }
 
     /**
@@ -69,7 +95,23 @@ class EmpleadoController extends Controller
      */
     public function update(Request $request, Empleado $empleado)
     {
-        //
+        $empleado = new Empleado;
+        $empleado->nombre  = $request->nombre;
+        $empleado->appaterno = $request->appaterno;
+        $empleado->apmaterno  = $request->apmaterno;
+        $empleado->cargo  = $request->cargo;
+        $empleado->ci  = $request->ci;
+        $empleado->direccion  = $request->direccion;
+        $empleado->estadocivil  = $request->estadocivil;
+        $empleado->fechanac  = $request->fechanac;
+        $empleado->genero  = $request->genero;
+        $empleado->nacionalidad  = $request->nacionalidad;
+        $empleado->telefono  = $request->telefono;
+        $empleado->id_sindicato  = $request->id_sindicato;
+        $empleado->id_departamento  = $request->id_departamento;
+
+        $empleado->save();
+        return redirect()->route('empleados.index');
     }
 
     /**
@@ -78,8 +120,10 @@ class EmpleadoController extends Controller
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Empleado $empleado)
+    public function destroy($id)
     {
-        //
+        $empleado = Empleado::find($id);
+        $empleado->delete();
+        return back()->with('info', 'Fue eliminado exitosamente');
     }
 }

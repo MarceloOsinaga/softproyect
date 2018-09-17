@@ -14,7 +14,9 @@ class HabilidadesController extends Controller
      */
     public function index()
     {
-        //
+        $tipocontratos = Tipocontrato::orderBy('id')->paginate("10");
+        return view('tipocontrato.index', compact('tipocontratos'));
+       //return $tipocontratos;
     }
 
     /**
@@ -24,7 +26,7 @@ class HabilidadesController extends Controller
      */
     public function create()
     {
-        //
+        return view('tipocontrato.create');
     }
 
     /**
@@ -35,51 +37,63 @@ class HabilidadesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tipocontrato = new Tipocontrato;
+        $tipocontrato->nombre  = $request->nombre;
+        $tipocontrato->descripcion = $request->descripcion;
+        $tipocontrato->save();
+        return redirect()->route('tipocontratos.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Habilidades  $habilidades
+     * @param  \App\Tipocontrato  $tipocontrato
      * @return \Illuminate\Http\Response
      */
-    public function show(Habilidades $habilidades)
+    public function show($id)
     {
-        //
+        $tipocontrato = Tipocontrato::find($id);
+        return view('tipocontrato.show', compact('tipocontrato'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Habilidades  $habilidades
+     * @param  \App\Tipocontrato  $tipocontrato
      * @return \Illuminate\Http\Response
      */
-    public function edit(Habilidades $habilidades)
+    public function edit($id)
     {
-        //
+        $tipocontrato = Tipocontrato::find($id);
+        return view('tipocontrato.edit', compact('tipocontrato'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Habilidades  $habilidades
+     * @param  \App\Tipocontrato  $tipocontrato
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Habilidades $habilidades)
+    public function update(Request $request, $id)
     {
-        //
+        $tipocontrato = Tipocontrato::find($id);
+        $tipocontrato->nombre  = $request->nombre;
+        $tipocontrato->descripcion = $request->descripcion;
+        $tipocontrato->save();
+        return redirect()->route('tipocontratos.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Habilidades  $habilidades
+     * @param  \App\Tipocontrato  $tipocontrato
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Habilidades $habilidades)
+    public function destroy($id)
     {
-        //
+        $tipocontrato = Tipocontrato::find($id);
+        $tipocontrato->delete();
+        return back()->with('info', 'Fue eliminado exitosamente');
     }
 }

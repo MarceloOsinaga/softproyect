@@ -14,7 +14,7 @@ class TipocontratoController extends Controller
      */
     public function index()
     {
-        $tipocontratos = Tipocontrato::orderBy('id', 'DESC')->paginate();
+        $tipocontratos = Tipocontrato::orderBy('id')->paginate("10");
         return view('tipocontrato.index', compact('tipocontratos'));
        //return $tipocontratos;
     }
