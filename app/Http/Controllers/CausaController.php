@@ -14,8 +14,9 @@ class CausaController extends Controller
      */
     public function index()
     {
-        $causas = causa::orderBy('id', 'DESC')->paginate();
+        $causas = causa::orderBy('id')->paginate("10");
         return view('causa.index', compact('causas'));
+       //return $causas;
     }
 
     /**
@@ -36,7 +37,7 @@ class CausaController extends Controller
      */
     public function store(Request $request)
     {
-       $causa = new causa;
+        $causa = new causa;
         $causa->nombre  = $request->nombre;
         $causa->descripcion = $request->descripcion;
         $causa->save();
@@ -49,7 +50,7 @@ class CausaController extends Controller
      * @param  \App\causa  $causa
      * @return \Illuminate\Http\Response
      */
-    public function show(causa $causa)
+    public function show($id)
     {
         $causa = causa::find($id);
         return view('causa.show', compact('causa'));
@@ -76,7 +77,7 @@ class CausaController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $causa = causa::find($id);
+        $causa = causa::find($id);
         $causa->nombre  = $request->nombre;
         $causa->descripcion = $request->descripcion;
         $causa->save();

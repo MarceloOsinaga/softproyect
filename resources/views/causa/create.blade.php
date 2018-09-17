@@ -1,18 +1,18 @@
-@extends('layouts.admin')
+@extends('layouts.formulario')
 
-@section('content')
-	<div class="col-xs-12 col-sm-8">
-		<h2>
-			Nuevo causa
-			<a href="{{ route('causas.index') }}" class="btn btn-default pull-right">		Regresar
-			</a>
-		</h2>
-		<hr>
-		@include('causa.partials.errors')
-		{!! Form::open(['route' => 'causas.store']) !!}
-			
-			@include('causa.partials.form')
-			
-		{!! Form::close() !!}
-	</div>
+@section('titulo')
+Nueva Creacion de Tipo de Causa
+@endsection
+
+@section('rutaRegresar')
+		href="{{ route('causas.index') }}"
+@endsection
+
+@section('formulario')
+	@include('causa.partials.errors')
+	{!! Form::open(['route' => 'causas.store']) !!}
+		
+		@include('causa.partials.form')
+		
+	{!! Form::close() !!}
 @endsection
