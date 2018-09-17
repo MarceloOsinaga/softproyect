@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class EmpleadoController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * visualisar el listado de los empleados
      *
      * @return \Illuminate\Http\Response
      */
@@ -18,7 +18,7 @@ class EmpleadoController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Crear nuevo registro de un empleado
      *
      * @return \Illuminate\Http\Response
      */
@@ -28,7 +28,7 @@ class EmpleadoController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacenar un registro recien creado 
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -39,7 +39,7 @@ class EmpleadoController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Ver el detalle del perfil de un empleado
      *
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
@@ -50,7 +50,7 @@ class EmpleadoController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Formulario para editar un empleado
      *
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
@@ -61,7 +61,7 @@ class EmpleadoController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Almacenar un empleado Editado
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Empleado  $empleado
@@ -73,7 +73,7 @@ class EmpleadoController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Emilinar un empleado 
      *
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
