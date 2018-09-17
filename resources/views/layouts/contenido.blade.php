@@ -1,7 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-                <div class="row">
+<br>
+            <div class="row">
                     <div class="col-12">
                         <div class="card">
                            <div class="card card-outline-info">
