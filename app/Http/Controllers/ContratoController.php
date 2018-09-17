@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class ContratoController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +15,10 @@ class ContratoController extends Controller
      */
     public function index()
     {
-        //
+        
+          $contratos = Contrato::orderBy('id')->paginate("10");
+        return view('contrato.index', compact('contratos'));
+       //return $tipocontratos;
     }
 
     /**
@@ -24,7 +28,10 @@ class ContratoController extends Controller
      */
     public function create()
     {
-        //
+        $contratos = contrato::orderBy('id')->paginate("10");
+        $empleados = empleado::select('*')->get();
+        $tipoContratos = Tipocontrato::select('*')->get();
+        return view('contrato.create')->with('empleados',$empleados)->with('tipoContratos',$tipoContratos);
     }
 
     /**
@@ -35,51 +42,59 @@ class ContratoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $contrato = new contrato;
+        $contrato->fill($request->all());
+        $contrato->save();
+        return redirect()->route('contratos.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Contrato  $contrato
+     * @param  \App\contrato  $contrato
      * @return \Illuminate\Http\Response
      */
-    public function show(Contrato $contrato)
+    public function show($id)
     {
-        //
+        
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Contrato  $contrato
+     * @param  \App\contrato  $contrato
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contrato $contrato)
+    public function edit($id)
     {
-        //
+        //$contrato = Contrato::find($id);
+        //$tipoContratos= Tipocontrato::all()
+        //return view('contrato.show')->with('tipocontratos',$tipocontratos)->with('contrato',$contrato);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Contrato  $contrato
+     * @param  \App\contrato  $contrato
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contrato $contrato)
+    public function update(Request $request, $id)
     {
-        //
+        $contrato = contrato::find($id);
+        $contrato->fill($request->all());
+        $contrato->save();
+        return redirect()->route('contratos.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Contrato  $contrato
+     * @param  \App\contrato  $contrato
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contrato $contrato)
+    public function destroy($id)
     {
-        //
+       
     }
 }

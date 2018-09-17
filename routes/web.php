@@ -16,15 +16,14 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
 ///Backup
 Route::resource('/backup', 'Admin\BackupController');
 Route::resource('sindicatos','SindicatoController');
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('tipocontratos', 'TipocontratoController');
 Route::resource('sindicatos','SindicatoController');
 Route::resource('causas','CausaController');
 Route::resource('departamentos','DepartamentoController');
 Route::resource('empleados','EmpleadoController');
-Route::resource('empleados','Empleado');
-
+Route::resource('contratos','ContratoController');
