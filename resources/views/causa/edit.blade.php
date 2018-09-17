@@ -1,18 +1,18 @@
-@extends('layouts.admin')
+@extends('layouts.formulario')
 
-@section('content')
-	<div class="col-xs-12 col-sm-8">
-		<h2>
-			Editar Sindicato
-			<a href="{{ route('sindicatos.index') }}" class="btn btn-default pull-right">		Regresar
-			</a>
-		</h2>
-		<hr>
-		@include('sindicato.partials.errors')
-		{!! Form::model($sindicato, ['route' => ['sindicatos.update', $sindicato->id], 'method' => 'PUT']) !!}
-			
-			@include('sindicato.partials.form')
-			
-		{!! Form::close() !!}
-	</div>
-	@endsection
+@section('titulo')
+	editar tipo de causa
+endsection
+
+@section('rutaRegresar')
+	href="{{ route('causas.index') }}"
+@endsection
+
+@section('formulario')
+	@include('causa.partials.errors')
+								{!! Form::model($causa, ['route' => ['causas.update', $causa->id], 'method' => 'PUT']) !!}
+									
+									@include('causa.partials.form')
+									
+								{!! Form::close() !!}
+@endsection

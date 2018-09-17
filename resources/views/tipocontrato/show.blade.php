@@ -1,21 +1,23 @@
-@extends('layouts.admin')
+@extends('layouts.formulario')
 
-@section('content')
-	<div class="col-xs-12 col-sm-8">
-		<h2>
-			
-			<a href="{{ route('tipocontratos.index') }}" class="btn btn-default pull-right">		Regresar
-			</a>
-		</h2>
-		<hr>
-		<p>{{ $tipocontrato->id }}</p> 
-		<p>{{ $tipocontrato->nombre }}</p>
-		<p>{{ $tipocontrato->descripcion }}</p>
-		
+@section('titulo')
+ Perfil Tipo Contrato
+@endsection
 
-		<a href="{{ route('tipocontratos.edit', $tipocontrato->id) }}" class="btn btn-primary">
-			Editar
-		</a>
-	</div>
-	
+@section('rutaRegresar')
+	href="{{ route('tipocontratos.index') }}"
+
+@endsection
+
+@section('formulario')
+						<strong>Id:</strong>
+						<p>{{ $tipocontrato->id }}</p> 
+						<strong>Nombre:</strong>
+						<p>{{ $tipocontrato->nombre }}</p>
+						<strong>Descripcion:</strong>
+						<p>{{ $tipocontrato->descripcion }}</p>
+						<hr>
+					<a href="{{ route('tipocontratos.edit', $tipocontrato->id) }}" class="btn  btn-outline-primary btn-rounded">
+					Editar
+				</a>
 @endsection
