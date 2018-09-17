@@ -21,6 +21,18 @@
 			{!! Form::number('ci', null, ['class' => 'form-control','placeholder' => 'Ci','id' => 'Nombre']) !!}
 		</div>
 		<div class="form-group">
+				{!! Form::label('direccion', 'Direccion :', ['class' => 'control-label']) !!}
+				{!! Form::text('direccion', null, ['class' => 'form-control','placeholder' => 'Direccion','id' => 'cargo']) !!}
+		</div>
+		<div class="form-group">
+					{!! Form::label('estadocivil', 'Cargo :', ['class' => 'control-label']) !!}
+					{!! Form::text('estadocivil', null, ['class' => 'form-control','placeholder' => 'Estado civil','id' => 'cargo']) !!}
+		</div>
+
+
+
+
+		<div class="form-group">
 			{!! Form::label('fechanac', 'Fecha nac.: ', ['class' => 'control-label']) !!}
 			{!! Form::date('fechanac', null, ['class' => 'form-control','placeholder' => 'Direccion','id' => 'direccion']) !!}
 		</div>
@@ -36,15 +48,17 @@
 			{!! Form::label('telefono', 'Telefono ', ['class' => 'control-label']) !!}
 			{!! Form::number('telefono', null, ['class' => 'form-control','3366566' => 'Nombre','id' => 'Nombre']) !!}
 		</div>
+		
 		<div class="form-group">
-			{!! Form::label('telefono', 'Telefono ', ['class' => 'control-label']) !!}
-			{!! Form::number('telefono', null, ['class' => 'form-control','3366566' => 'Nombre','id' => 'Nombre']) !!}
-		</div>
+				{!! Form::label('id_sindicato', 'id_indicato ', ['class' => 'control-label']) !!}
+				{!! Form::text('id_sindicato', null, ['class' => 'form-control','3366566' => 'Nombre','id' => 'Nombre']) !!}
+			</div>
+
 		<div class="form-group">
-			{!! Form::label('telefono', 'Telefono ', ['class' => 'control-label']) !!}
-			{!! Form::number('telefono', null, ['class' => 'form-control','3366566' => 'Nombre','id' => 'Nombre']) !!}
+			{!! Form::label('id_departamento', 'id_departamento ', ['class' => 'control-label']) !!}
+			{!! Form::text('id_departamento', null, ['class' => 'form-control','3366566' => 'Nombre','id' => 'Nombre']) !!}
 		</div>
-	
+
 	
 
 <hr>

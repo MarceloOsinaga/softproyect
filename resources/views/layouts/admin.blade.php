@@ -597,11 +597,15 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
+                <br>
+                                                    <br>
+                                                    <br>
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                            
                                                 <div class="card card-outline-info">  
+                                                    
                                                 @yield('content')
                         
                             </div>

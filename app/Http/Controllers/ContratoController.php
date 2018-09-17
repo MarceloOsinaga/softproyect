@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Contrato;
+use App\Tipocontrato;
+use App\Empleado;
 use Illuminate\Http\Request;
 
 class ContratoController extends Controller
@@ -56,7 +58,10 @@ class ContratoController extends Controller
      */
     public function show($id)
     {
-        
+         $contrato = Contrato::find($id);
+         $tipocontrato = Tipocontrato::find($contrato->id_tipocontrato);
+         $empleado = Empleado::find($contrato->id_empleado);
+        return view('contrato.show')->with('contrato',$contrato)->with('tipocontrato',$tipocontrato)->with('empleado',$empleado);
     }
 
     /**
@@ -67,9 +72,10 @@ class ContratoController extends Controller
      */
     public function edit($id)
     {
-        //$contrato = Contrato::find($id);
-        //$tipoContratos= Tipocontrato::all()
-        //return view('contrato.show')->with('tipocontratos',$tipocontratos)->with('contrato',$contrato);
+        $contrato = Contrato::find($id);
+        $tipocontrato= Tipocontrato::all();
+        $empleado = Empleado::all();
+        return view('contrato.edit')->with('contrato',$contrato)->with('tipocontrato',$tipocontrato)->with('empleado',$empleado);
     }
 
     /**

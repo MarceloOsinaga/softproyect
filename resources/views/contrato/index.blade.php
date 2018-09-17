@@ -18,6 +18,12 @@ Contrato
 			<th>ID</th>
 			<th>Hora de Ingreso</th>
 			<th>Hora de salida</th>
+			<th>fecha de Inicio</th>
+			<th>Fecha de vencimiento</th>
+			<th>Salario</th>
+			<th>Turno de Trabajo</th>
+			<th>Tipo de Contrato</th>
+			<th>Empleado</th>
 			<th colspan="3">Accion</th>
 		</tr>
 	</thead>
@@ -31,6 +37,12 @@ Contrato
 			<td >
 				{{ $contrato->horasalida }}
 			</td>
+			<td>{{ $contrato->fechainicio }}</td>
+			<td>{{ $contrato->fechafin }}</td>
+			<td>{{ $contrato->salario }}</td>
+			<td>{{ $contrato->turnotrabajo }}</td>
+			<td>{{ $contrato->id_tipocontrato }}</td>
+			<td>{{ $contrato->id_empleado}}</td>
 			<td width="1%">
 				<a href="{{ route('contratos.show', $contrato->id) }}" class="btn btn-secondary btn-circle">
 						<i class="fa fa-eye"></i>

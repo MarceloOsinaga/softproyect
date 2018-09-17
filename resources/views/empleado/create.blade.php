@@ -16,11 +16,13 @@
 							<h3 class="card-title">Datos</h3>
 							<hr>
 							@include('empleado.partials.errors')
-							{!! Form::open(['route' => 'tipocontratos.store']) !!}
+							{!! Form::open(['route' => 'empleados.store']) !!}
 								
 								@include('empleado.partials.form')
 								
 							{!! Form::close() !!}
+
+							
 						
 					</div>
 			</div>
