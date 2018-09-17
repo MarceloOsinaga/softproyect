@@ -8,12 +8,12 @@
 					<div class="row">
 							<div class="col-lg-12">
 
-								
+									@include('Tipocontrato.partials.info')
 									<div class="card-body">
 										<h4 class="card-title">Primary Table</h4>
 										<a href="{{ route('tipocontratos.index') }}" class="btn btn-outline-primary btn-rounded pull-right">
 												Regresar
-												@include('Tipocontrato.partials.info')
+												
 											</a>
 										<h3 class="card-title">Datos</h3>
 										<h6 class="card-subtitle">Add class <code>.color-table .primary-table</code></h6>
@@ -89,8 +89,7 @@
 			</div>
 		</div>
 	</div>
-
-
+	
 @endsection
 
 
