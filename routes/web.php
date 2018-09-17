@@ -11,15 +11,23 @@
 |
 */
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
 
+///Backup
+Route::resource('/backup', 'Admin\BackupController');
+Route::resource('sindicatos','SindicatoController');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('tipocontratos', 'TipocontratoController');
 Route::resource('sindicatos','SindicatoController');
+Route::resource('causas','CausaController');
+Route::resource('departamentos','DepartamentoController');
+
 
 Route::middleware(['Auth'])->group(function(){
 	// tipo contrato
@@ -40,4 +48,9 @@ Route::middleware(['Auth'])->group(function(){
 	Route::post('causa/edit')->middleware('permission:causa.edit');//crear
 	Route::post('causa/show')->middleware('permission:causa.show');//crear
 });
+
+
+
+Route::resource('empleados','EmpleadoController');
+Route::resource('contratos','ContratoController');
 
